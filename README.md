@@ -20,19 +20,19 @@ npm install
 ```rego
 package rbac.authz
 
-import data.rbac.authz.acl
+import data
 import input
 
 default allow = false
 allow {
 	# list of roles for input user
-    roles := acl.user_roles[input.user]
+    roles := data.user_roles[input.user]
 
     # for each role
     r := roles[_]
 
     # lookup the permissions list for role
-    permissions := acl.role_permissions[r]
+    permissions := data.role_permissions[r]
 
     # for each permission
     p := permissions[_]
