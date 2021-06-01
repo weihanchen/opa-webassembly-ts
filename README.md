@@ -42,11 +42,21 @@ allow {
 ## Build .wasm binary
 
 ```sh
-opa build -t wasm -e 'rbac.authz/allow' ./rbac.authz.rego && tar -xzf ./bundle.tar.gz /policy.wasm
+opa build -t wasm -e 'example/allow' ./example.rego && tar -xzf ./bundle.tar.gz /policy.wasm
 # or npm run build:opa
 ```
 
 ## Run the example code that invokes the Wasm binary
 ```sh
 npm start -- "{\"user\":\"UserA\",\"object\":\"article\",\"action\":\"edit\"}"
+```
+
+## Result
+```json
+[
+  {
+    "result": true
+  }
+]
+
 ```
