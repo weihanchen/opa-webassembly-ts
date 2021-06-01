@@ -1,6 +1,8 @@
 OPA WebAssembly Typescript Demo
 ===
 
+![Open Policy Agent Testing](https://github.com/weihanchen/opa-webassembly-ts/actions/workflows/opa.yml/badge.svg)
+
 This project will demo how to use OPA for authorization with webassembly on typescript.
 
 RBAC examples reference： [https://www.openpolicyagent.org/docs/latest/comparison-to-other-systems/](https://www.openpolicyagent.org/docs/latest/comparison-to-other-systems/)
