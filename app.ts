@@ -4,12 +4,8 @@ import { loadPolicy } from "@open-policy-agent/opa-wasm";
 (async function readPolicy() {
   const policyWasm = await fs.readFile("policy.wasm");
   const policy = await loadPolicy(policyWasm);
-
-  // Use console parameters for the input, do quick
-  // validation by json parsing. Not efficient.. but
-  // will raise an error
   const input = JSON.parse(process.argv[2]);
-  // Provide a data document with a string value
+  // Provide a data document
   policy.setData({
     user_roles: {
       UserA: ["manager"],
@@ -21,6 +17,14 @@ import { loadPolicy } from "@open-policy-agent/opa-wasm";
 
   // Evaluate the policy and log the result
   const result = policy.evaluate(input);
+  if (result == null) {
+    console.error("evaluation error");
+    return;
+  }
+  if (result.length == 0) {
+    console.log("undefined");
+    return;
+  }
   console.log(JSON.stringify(result, null, 2));
 })().catch((err) => {
   console.log("ERROR: ", err);

@@ -18,10 +18,7 @@ npm install
 ## Create Ploicy
 
 ```rego
-package rbac.authz
-
-import data
-import input
+package example
 
 default allow = false
 allow {
@@ -45,11 +42,11 @@ allow {
 ## Build .wasm binary
 
 ```sh
-opa build -t wasm -e 'rbac.authz/hello' ./rbac.authz.rego && tar -xzf ./bundle.tar.gz /policy.wasm
-# or npm run build
+opa build -t wasm -e 'rbac.authz/allow' ./rbac.authz.rego && tar -xzf ./bundle.tar.gz /policy.wasm
+# or npm run build:opa
 ```
 
 ## Run the example code that invokes the Wasm binary
 ```sh
-npm start -- '{\"input\":{\"user\":\"UserA\",\"object\":\"article\",\"action\":\"edit\"}}'
+npm start -- "{\"user\":\"UserA\",\"object\":\"article\",\"action\":\"edit\"}"
 ```

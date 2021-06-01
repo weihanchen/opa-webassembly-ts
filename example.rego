@@ -1,7 +1,4 @@
-package rbac.authz
-
-import data
-import input
+package example
 
 default allow = false
 allow {
