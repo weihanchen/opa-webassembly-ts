@@ -11,5 +11,5 @@ role_permissions = {
 }
 
 test_allow_edit_article {
-    allow with input as {"user": "moderator", "action": "edit", "object": "article"} with data.user_roles as user_roles with data.role_permissions = role_permissions
+    allow with input as {"user": "moderator", "action": "edit", "object": "article"} with data.user_roles as user_roles with data.role_permissions as role_permissions
 }

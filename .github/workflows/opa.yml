@@ -35,4 +35,4 @@ jobs:
           ./opa -h
       - name: Run Testing
         run: |
-          ./opa test -v policy/*.rego
+          ./opa test -v *.rego
