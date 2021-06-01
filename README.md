@@ -1,5 +1,7 @@
 OPA WebAssembly Typescript Demo
 ===
+![opa_webassembly_flow.png](./assets/opa_webassembly_flow.png)
+
 
 ## Install OPA binary on Linux
 
@@ -16,7 +18,7 @@ npm install
 ```
 
 ## Create Ploicy
-
+* example.rego
 ```rego
 package example
 
@@ -37,6 +39,20 @@ allow {
     # check permission
     p == {"action": input.action, "object": input.object }
 }
+```
+
+* Our data will be dynamically generated, an example is as follows：
+```javascript
+{
+    // user-role assignments
+    user_roles: {
+      UserA: ["manager"],
+    },
+    // role-permissions assignments
+    role_permissions: {
+      manager: [{ action: "edit", object: "article" }],
+    },
+  }
 ```
 
 ## Build .wasm binary
