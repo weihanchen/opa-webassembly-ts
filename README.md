@@ -1,5 +1,11 @@
 OPA WebAssembly Typescript Demo
 ===
+
+This project will demo how to use OPA for authorization with webassembly on typescript.
+
+RBAC examples reference： [https://www.openpolicyagent.org/docs/latest/comparison-to-other-systems/](https://www.openpolicyagent.org/docs/latest/comparison-to-other-systems/)
+
+## Flow
 ![opa_webassembly_flow.png](./assets/opa_webassembly_flow.png)
 
 
@@ -42,6 +48,7 @@ allow {
 ```
 
 * Our data will be dynamically generated, an example is as follows：
+* Reference： [https://github.com/weihanchen/opa-webassembly-ts/blob/master/app.ts#L9](https://github.com/weihanchen/opa-webassembly-ts/blob/master/app.ts#L9)
 ```javascript
 {
     // user-role assignments
@@ -74,5 +81,9 @@ npm start -- "{\"user\":\"UserA\",\"object\":\"article\",\"action\":\"edit\"}"
     "result": true
   }
 ]
+```
 
+## Unit Test
+```sh
+./opa test -v policy/*.rego
 ```

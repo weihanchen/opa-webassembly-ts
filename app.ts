@@ -11,7 +11,10 @@ import { loadPolicy } from "@open-policy-agent/opa-wasm";
       UserA: ["manager"],
     },
     role_permissions: {
-      manager: [{ action: "edit", object: "article" }],
+      manager: [
+        { action: "edit", object: "article" },
+        { action: "create", object: "article" }
+      ],
     },
   });
 
