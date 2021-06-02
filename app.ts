@@ -8,10 +8,10 @@ import { loadPolicy } from "@open-policy-agent/opa-wasm";
   // Provide a data document
   policy.setData({
     user_roles: {
-      UserA: ["manager"],
+      userA: ["editor"],
     },
     role_permissions: {
-      manager: [
+      editor: [
         { action: "edit", object: "article" },
         { action: "create", object: "article" }
       ],

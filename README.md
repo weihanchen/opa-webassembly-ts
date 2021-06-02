@@ -32,7 +32,7 @@ package example
 
 default allow = false
 allow {
-	# list of roles for input user
+	  # list of roles for input user
     roles := data.user_roles[input.user]
 
     # for each role
@@ -54,12 +54,12 @@ allow {
 ```javascript
 {
     // user-role assignments
-    user_roles: {
-      UserA: ["manager"],
+    "user_roles": {
+      "userA": ["editor"],
     },
     // role-permissions assignments
-    role_permissions: {
-      manager: [{ action: "edit", object: "article" }],
+    "role_permissions": {
+      "editor": [{ "action": "edit", "object": "article" }],
     },
   }
 ```
@@ -73,7 +73,7 @@ opa build -t wasm -e 'example/allow' ./example.rego && tar -xzf ./bundle.tar.gz 
 
 ## Run the example code that invokes the Wasm binary
 ```sh
-npm start -- "{\"user\":\"UserA\",\"object\":\"article\",\"action\":\"edit\"}"
+npm start -- "{\"user\":\"userA\",\"object\":\"article\",\"action\":\"edit\"}"
 ```
 
 ## Result
